@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: takhti-ai-studio
+    runtime: static
+    buildCommand: echo "Static site - no build step required"
+    staticPublishPath: ./public
+    autoDeploy: false

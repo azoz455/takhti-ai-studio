@@ -1,0 +1,9 @@
+name = "takhti-ai-studio-api"
+main = "worker/index.js"
+compatibility_date = "2026-10-14"
+
+[vars]
+# Replace with the exact published frontend origin. Do not use * in production.
+ALLOWED_ORIGINS = "http://localhost:8788"
+# Configure these as encrypted secrets with `npx wrangler secret put`:
+# APP_TOKEN (required), OPENAI_API_KEY (optional), GEMINI_API_KEY (optional)

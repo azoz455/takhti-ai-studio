@@ -1,0 +1,16 @@
+{
+  "name": "takhti-ai-studio",
+  "version": "15.0.0",
+  "private": true,
+  "description": "Arabic AI tools and production workspace with optional Cloudflare Worker API connector",
+  "scripts": {
+    "dev:api": "wrangler dev --config wrangler.toml --port 8788",
+    "deploy:api": "wrangler deploy --config wrangler.toml",
+    "check:api": "node --check worker/index.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  },
+  "type": "module"
+}

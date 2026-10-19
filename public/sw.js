@@ -1,1 +1,23 @@
-const CACHE='takhti-v1';const ASSETS=['/','/index.html','/privacy.html','/404.html','/manifest.webmanifest','/favicon.svg'];self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS))));self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))));self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==location.origin)return;e.respondWith(caches.match(e.request).then(cached=>cached||fetch(e.request).then(res=>{if(res.ok){const copy=res.clone();caches.open(CACHE).then(c=>c.put(e.request,copy))}return res}).catch(()=>caches.match('/'))))});
+/* Takhti AI Studio offline shell. API responses and user data are never cached. */
+const CACHE = 'takhti-ai-shell-v15-1';
+const scopeURL = new URL(self.registration.scope);
+const path = value => new URL(value, scopeURL).pathname;
+const CORE = [path('./'), path('index.html'), path('manifest.webmanifest'), path('favicon.svg'), path('offline.html')];
+self.addEventListener('install', event => {
+  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting()));
+});
+self.addEventListener('activate', event => {
+  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim()));
+});
+self.addEventListener('fetch', event => {
+  const req = event.request;
+  const url = new URL(req.url);
+  if (req.method !== 'GET' || url.origin !== self.location.origin || url.pathname.includes('/api/')) return;
+  event.respondWith(fetch(req).then(response => {
+    if (response.ok && (req.mode === 'navigate' || CORE.includes(url.pathname))) {
+      const copy = response.clone();
+      caches.open(CACHE).then(cache => cache.put(req.mode === 'navigate' ? path('index.html') : req, copy));
+    }
+    return response;
+  }).catch(async () => (await caches.match(req)) || (req.mode === 'navigate' ? await caches.match(path('offline.html')) : Response.error())));
+});

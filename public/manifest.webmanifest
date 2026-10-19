@@ -1,1 +1,20 @@
-{"name":"تخطي AI Studio","short_name":"تخطي","lang":"ar","dir":"rtl","start_url":"/","display":"standalone","background_color":"#0b1020","theme_color":"#111827","description":"مساحة عربية للأدوات والقوالب وتنظيم العمل","icons":[{"src":"/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{
+  "name": "التخطي AI Studio",
+  "short_name": "التخطي AI",
+  "description": "مركز عربي لأدوات الذكاء الاصطناعي والأوامر ومسارات الإنتاج.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#1e6872",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
