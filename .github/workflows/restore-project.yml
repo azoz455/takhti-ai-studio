@@ -1,0 +1,33 @@
+name: Restore complete Takhti AI Studio source
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  restore-source:
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message != 'Restore complete Takhti AI Studio V15 source'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Extract project archive into repository
+        run: |
+          if [ ! -f takhti-ai-studio-v15-final.zip ]; then
+            echo "Project archive already extracted; nothing to do."
+            exit 0
+          fi
+          mkdir -p /tmp/takhti-release
+          unzip -q takhti-ai-studio-v15-final.zip -d /tmp/takhti-release
+          cp -a /tmp/takhti-release/takhti-ai-studio-final/. .
+          rm -f takhti-ai-studio-v15-final.zip
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Restore complete Takhti AI Studio V15 source"
+          git push
