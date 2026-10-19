@@ -32,6 +32,18 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}body{background:radial-gradi
 @media(max-width:760px){.buildCards{grid-template-columns:repeat(2,minmax(0,1fr))}.buildForm{grid-template-columns:1fr}.buildField.full{grid-column:auto}}
 @media(max-width:460px){.buildCards{grid-template-columns:1fr}}
 
+
+/* Takhti creative studio repair */
+.creativeStudio{margin:24px 0;padding:clamp(18px,3vw,30px);border:1px solid #dce7ec;border-radius:24px;background:linear-gradient(135deg,#fff 0%,#f3f8fa 100%);box-shadow:0 14px 40px #17334a0c}
+.creativeHead{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}.creativeIcon{display:grid;place-items:center;flex:0 0 52px;height:52px;border-radius:17px;background:#e6f3f2;font-size:26px}
+.creativeStudio h2{margin:0 0 7px;font-size:clamp(21px,3vw,29px);color:#17394b}.creativeStudio p{margin:0;color:#607482;line-height:1.8}
+.creativeGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.creativeField{display:flex;flex-direction:column;gap:7px}.creativeField label{font-weight:700;font-size:14px;color:#284555}
+.creativeField select,.creativeField textarea,.creativeField input{width:100%;box-sizing:border-box;border:1px solid #d4e0e6;border-radius:13px;padding:12px;background:#fff;color:#193747;font:inherit;min-height:46px}
+.creativeField textarea{min-height:104px;resize:vertical}.creativeWide{grid-column:1/-1}
+.creativeActions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.creativeBtn{border:0;border-radius:13px;padding:12px 17px;font:inherit;font-weight:700;cursor:pointer;background:#1d6870;color:#fff}.creativeBtn.secondary{background:#e8f0f3;color:#234453}.creativeOutputWrap{margin-top:18px;padding:16px;border:1px solid #dce7ec;border-radius:17px;background:#fff}
+.creativeOutput{white-space:pre-wrap;overflow-wrap:anywhere;line-height:2;color:#213c4b;min-height:95px;margin:12px 0}.creativeStatus{font-size:13px;color:#58717d;margin-top:8px}
+@media(max-width:600px){.creativeGrid{grid-template-columns:1fr}.creativeWide{grid-column:auto}.creativeActions .creativeBtn{flex:1 1 100%}.creativeHead{align-items:flex-start}}
+
 </style></head><body><div class="wrap"><header class="top"><div class="brand"><div class="mark">تـ</div><div><div class="eyebrow">TAKHTI AI STUDIO · V14</div><strong>مركز الإنتاج ومنصة الإنتاج الذكي</strong><div class="muted" style="font-size:12px">الأداة المناسبة، الأمر المناسب، والتنفيذ بخطوات أقصر.</div></div></div><div class="actions"><button class="btn" onclick="showFavorites()">★ المفضلة <span id="favCount">0</span></button><button class="btn" onclick="exportData()">تصدير بياناتي</button><button class="btn" onclick="document.getElementById('importFile').click()">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" hidden onchange="importData(event)"></div></header>
 <nav class="quickNav" aria-label="التنقل السريع"><span class="navBrand">التخطي</span><a href="#executionCenter">مركز التنفيذ</a><a href="#liveIntegrationPanel">التوليد المتصل</a><a href="#connectorGrid">التكاملات</a><a href="#toolLibrary">مكتبة الأدوات</a><a href="#promptBuilder">صانع الأوامر</a><a href="#workflowSection">مسارات العمل</a></nav>
 <section class="hero"><div><div class="eyebrow">مكتبة عملية تتوسع باستمرار</div><h1>من الفكرة إلى التنفيذ،<br><span style="color:var(--accent)">بأقل خطوات ممكنة.</span></h1><p>دليل عربي لأدوات الكتابة والبحث والصور والفيديو والموسيقى والتصميم والبرمجة والأتمتة. افتح الأداة، افهم وظيفتها، انسخ أمرًا جاهزًا، وعدّله بحسب مشروعك.</p><div class="pills"><span class="tag">أوامر جاهزة للنسخ</span><span class="tag">روابط رسمية</span><span class="tag">مفضلة محلية</span><span class="tag">مسارات عمل</span></div></div><div class="heroArt">✦<br><span style="font-size:45px">⌘ ✧ ◈</span></div></section>
@@ -76,6 +88,20 @@ html{scroll-behavior:smooth;scroll-padding-top:90px}body{background:radial-gradi
 <div class="buildBtns"><button class="btn primary" type="button" onclick="copyBuildPlan()">📋 نسخ الخطة والأمر</button><button class="btn" type="button" onclick="sendBuildToAI()">متابعة في مساعد AI</button></div>
 <div class="buildNote">🔎 مبدأ التنفيذ: كل مرحلة يجب أن تنتهي بمخرج واضح واختبار نجاح. لا نعد بإنشاء تطبيق منشور أو دراسة موثقة بمجرد توليد خطة؛ التنفيذ والنشر والتحقق تحتاج أدوات وصلاحيات وبيانات مناسبة. لا تدخل كلمات مرور أو معلومات حساسة.</div>
 </div></section>
+
+<section class="creativeStudio" id="creativeStudio" aria-labelledby="creativeTitle">
+  <div class="creativeHead"><div class="creativeIcon" aria-hidden="true">✍️</div><div><h2 id="creativeTitle">استوديو الإبداع</h2><p>حوّل الشعور أو الفكرة إلى مسودة قابلة للتعديل. يعمل هذا الاستوديو محليًا دون اتصال، ولا يدّعي أنه نموذج ذكاء اصطناعي متصل.</p></div></div>
+  <div class="creativeGrid">
+    <div class="creativeField"><label for="creativeType">نوع النص</label><select id="creativeType"><option value="قصيدة">قصيدة</option><option value="أغنية خليجية">أغنية خليجية</option><option value="أغنية راب خليجي">راب خليجي</option><option value="موال خليجي">موال خليجي</option><option value="إهداء">إهداء</option><option value="رسالة حب">رسالة حب</option><option value="اعتذار">اعتذار</option><option value="عتاب راقٍ">عتاب راقٍ</option><option value="تهنئة">تهنئة</option><option value="عبارة لصورة">عبارة لصورة</option><option value="وصف لتوليد موسيقى في Suno">وصف لتوليد موسيقى في Suno</option></select></div>
+    <div class="creativeField"><label for="creativeTone">المزاج</label><select id="creativeTone"><option>صادق ومؤثر</option><option>رومانسي</option><option>حزين وهادئ</option><option>قوي وواثق</option><option>ساخر وذكي</option><option>فرح وحماسي</option><option>رسمي وأنيق</option></select></div>
+    <div class="creativeField"><label for="creativeDialect">اللهجة والأسلوب</label><select id="creativeDialect"><option>سعودي خليجي</option><option>جنوبي / جازاني</option><option>فصحى سهلة</option><option>لهجة بيضاء</option><option>راب خليجي غنائي</option></select></div>
+    <div class="creativeField"><label for="creativeLength">الطول</label><select id="creativeLength"><option>قصير ومباشر</option><option selected>متوسط ومتماسك</option><option>طويل ومفصل</option></select></div>
+    <div class="creativeField creativeWide"><label for="creativeDetails">الفكرة والتفاصيل والأسماء (اختياري)</label><textarea id="creativeDetails" placeholder="اكتب ما تريد قوله، المناسبة، الأسماء، القافية أو أي تفاصيل مهمة..."></textarea></div>
+  </div>
+  <div class="creativeActions"><button class="creativeBtn" type="button" onclick="createCreativePrompt()">✨ إنشاء مسودة</button><button class="creativeBtn secondary" type="button" onclick="copyCreative()">نسخ النص</button><button class="creativeBtn secondary" type="button" onclick="resetCreative()">مسح الحقول</button></div>
+  <div class="creativeOutputWrap"><strong>المسودة / أمر جاهز للتطوير</strong><div id="creativeOutput" class="creativeOutput" aria-live="polite">اختر نوع النص واكتب فكرتك، ثم اضغط «إنشاء مسودة».</div><div id="creativeStatus" class="creativeStatus">وضع محلي: لا يوجد اتصال بخدمة توليد خارجية في هذه النسخة.</div></div>
+</section>
+
 <div class="microStats" aria-label="مميزات المنصة"><div class="microStat"><strong>من فكرة إلى خطة</strong><span>توجيه المهمة وتجهيز أمر التنفيذ</span></div><div class="microStat"><strong>مكتبة قابلة للبحث</strong><span>أدوات ومراجع وروابط رسمية</span></div><div class="microStat"><strong>تحكم ببياناتك</strong><span>مفضلة ومهام محفوظة محليًا</span></div></div>
 <div class="notice">تنبيه مهم: لا توجد «أسرار سحرية» تضمن نتيجة مثالية. الاختصارات هنا قوالب أوامر ومسارات عمل مجرّبة منطقيًا. الأسعار، الميزات، وحدود الاستخدام تتغير؛ تحقق من الموقع الرسمي. الروابط تفتح خدمات خارجية ولا تعني وجود ربط API أو تنفيذ آلي من داخل هذه الصفحة.</div>
 
@@ -172,6 +198,32 @@ function makeBuildPlan(){
 function copyBuildPlan(){if(!buildPlanCache)makeBuildPlan();if(buildPlanCache)copyText(buildPlanCache)}
 function sendBuildToAI(){if(!buildPlanCache)makeBuildPlan();if(!buildPlanCache)return;document.getElementById('goal').value=buildPlanCache;const el=document.getElementById('promptBuilder');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});else{copyText(buildPlanCache);window.open('https://chatgpt.com/','_blank','noopener')}}
 function resetBuildPlan(){['buildIdea','buildBlocker'].forEach(id=>document.getElementById(id).value='');['buildTrack','buildLevel','buildBudget','buildDeadline'].forEach(id=>document.getElementById(id).selectedIndex=0);buildPlanCache='';document.getElementById('buildPlanOutput').textContent='ستظهر هنا خريطة طريق أولية وأمر مفصل لتستخدمه مع مساعد الذكاء الاصطناعي.'}
+
+
+function createCreativePrompt(){
+ const get=id=>document.getElementById(id);
+ const type=get('creativeType').value, tone=get('creativeTone').value, dialect=get('creativeDialect').value, length=get('creativeLength').value;
+ const details=get('creativeDetails').value.trim();
+ const output=get('creativeOutput');
+ const brief=details||'ابتكر فكرة أصلية مناسبة للنوع المحدد، دون اختلاق أسماء أو تفاصيل شخصية.';
+ const prompt='المهمة: اكتب '+type+' بأسلوب '+dialect+'.\nالمزاج: '+tone+'.\nالطول: '+length+'.\nالتفاصيل: '+brief+'\n\nمعايير الجودة: لغة طبيعية ومتماسكة، صور ومعانٍ أصلية، تجنب الحشو والتكرار، اضبط القافية والإيقاع عند ملاءمتهما، ولا تضف معلومات غير مذكورة. أخرج النص النهائي مباشرة ثم أضف ملاحظات قصيرة للتحسين عند الحاجة.';
+ let draft='';
+ if(type==='رسالة حب') draft='أكتب لك لأن بعض المشاعر لا يليق بها الصمت، ولأن وجودك يترك في يومي أثرًا لا تصنعه التفاصيل العادية. '+brief;
+ else if(type==='اعتذار') draft='أعرف أن الاعتذار وحده لا يمحو الأثر، لكني أبدأ بالاعتراف بما حدث وتحمل مسؤوليتي، ثم أترك للأفعال فرصة إثبات التغيير. '+brief;
+ else if(type==='عتاب راقٍ') draft='ما أعاتبك لأنك عابر، أعاتبك لأن مكانك كان أكبر من هذا الغياب. الوضوح أرحم من التخمين، والصدق يحفظ ما تبقى من الود. '+brief;
+ else if(type==='إهداء') draft='إلى من يستحق كلمة جميلة لا لمناسبة عابرة، بل لأن حضوره يصنع فرقًا: لك من القلب تقدير يليق بك، وذكرى طيبة تتجدد مع الأيام. '+brief;
+ else if(type==='عبارة لصورة') draft='بعض الأثر لا يحتاج ضجيجًا؛ يكفي أن يكون صادقًا.\n'+brief;
+ else if(type==='وصف لتوليد موسيقى في Suno') draft='Saudi/Gulf cinematic tarab foundation, '+tone+', seamless melodic Gulf hip-hop/rap integration when suitable, expressive lead vocal, polished modern commercial production, clear Arabic pronunciation, cohesive transitions. Lyrics/topic: '+brief;
+ else draft='مسودة أولية لـ '+type+' ('+dialect+'، '+tone+'):\n'+brief+'\n\n[طوّر الصور والمعاني والقافية بما يخدم الفكرة، واحذف أي سطر لا يضيف معنى.]';
+ output.textContent=(type==='رسالة حب'||type==='اعتذار'||type==='عتاب راقٍ'||type==='إهداء'||type==='عبارة لصورة')?draft+'\n\n---\nأمر احترافي للتطوير:\n'+prompt:prompt+'\n\n---\nبداية مقترحة:\n'+draft;
+ get('creativeStatus').textContent='تم إنشاء مسودة محلية. هذه ليست نتيجة مولدة من نموذج AI متصل.';
+}
+async function copyCreative(){
+ const text=document.getElementById('creativeOutput').textContent;
+ try{await navigator.clipboard.writeText(text);document.getElementById('creativeStatus').textContent='تم النسخ.'}
+ catch(e){const area=document.createElement('textarea');area.value=text;area.style.position='fixed';area.style.opacity='0';document.body.appendChild(area);area.select();const ok=document.execCommand('copy');area.remove();document.getElementById('creativeStatus').textContent=ok?'تم النسخ.':'تعذر النسخ التلقائي؛ اضغط مطولًا على النص لنسخه.'}
+}
+function resetCreative(){document.getElementById('creativeDetails').value='';document.getElementById('creativeOutput').textContent='اختر نوع النص واكتب فكرتك، ثم اضغط «إنشاء مسودة».';document.getElementById('creativeStatus').textContent='تم مسح الحقول. وضع محلي دون اتصال بخدمة AI.'}
 
 renderFilters();renderTools();renderWorkflows();renderExecutionTasks();renderConnectors();
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) { window.addEventListener('load', () => navigator.serviceWorker.register(new URL('./sw.js', location.href), {scope: './'}).catch(() => {})); }
