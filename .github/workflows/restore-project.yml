@@ -22,12 +22,16 @@ jobs:
             echo "Project archive already extracted; nothing to do."
             exit 0
           fi
+
           mkdir -p /tmp/takhti-release
           unzip -q takhti-ai-studio-v15-final.zip -d /tmp/takhti-release
-          cp -a /tmp/takhti-release/takhti-ai-studio-final/. .
+
+          # Exclude workflows directory to avoid attempting to update workflow files from this job
+          rsync -a --exclude='.github/workflows/' /tmp/takhti-release/takhti-ai-studio-final/ ./
+
           rm -f takhti-ai-studio-v15-final.zip
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Restore complete Takhti AI Studio V15 source"
+          git commit -m "Restore complete Takhti AI Studio V15 source" || echo "No changes to commit"
           git push
