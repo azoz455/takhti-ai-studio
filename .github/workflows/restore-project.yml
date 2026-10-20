@@ -39,7 +39,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git checkout -B "${GITHUB_REF_NAME:-main}"
+          branch="${GITHUB_REF_NAME:-main}"
+          git fetch origin "$branch"
+          git checkout -B "$branch" "origin/$branch"
+
           git add -A
 
           if git diff --cached --quiet; then
@@ -48,4 +51,4 @@ jobs:
           fi
 
           git commit -m "Restore complete Takhti AI Studio V15 source"
-          git push origin HEAD:"${GITHUB_REF_NAME:-main}"
+          git push --force-with-lease origin HEAD:"$branch"
