@@ -16,8 +16,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: true
+          fetch-depth: 0
+
       - name: Extract project archive into repository
+        shell: bash
         run: |
+          set -euo pipefail
+
           if [ ! -f takhti-ai-studio-v15-final.zip ]; then
             echo "Project archive already extracted; nothing to do."
             exit 0
@@ -30,8 +35,17 @@ jobs:
           rsync -a --exclude='.github/workflows/' /tmp/takhti-release/takhti-ai-studio-final/ ./
 
           rm -f takhti-ai-studio-v15-final.zip
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git checkout -B "${GITHUB_REF_NAME:-main}"
           git add -A
-          git commit -m "Restore complete Takhti AI Studio V15 source" || echo "No changes to commit"
-          git push
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Restore complete Takhti AI Studio V15 source"
+          git push origin HEAD:"${GITHUB_REF_NAME:-main}"
