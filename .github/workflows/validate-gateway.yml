@@ -1,0 +1,24 @@
+name: Validate AI Gateway
+on:
+  push:
+    branches: [main]
+    paths:
+      - "worker/**"
+      - "tests/**"
+      - "package.json"
+      - ".github/workflows/validate-gateway.yml"
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --check worker/index.js
+      - run: node --test tests/*.test.js
