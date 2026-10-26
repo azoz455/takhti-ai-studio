@@ -616,4 +616,43 @@ $('mgSend').addEventListener('click',async()=>{const prompt=$('mgPrompt').value.
 (()=>{const b=document.getElementById('takhtiThemeToggle');if(!b)return;const key='takhti-luxury-theme-v1';const apply=light=>{document.body.classList.toggle('takhti-light',light);b.setAttribute('aria-pressed',String(light));b.innerHTML=light?'◐ <span>المظهر الداكن</span>':'☼ <span>المظهر الفاتح</span>';b.setAttribute('aria-label',light?'تبديل المظهر إلى النسخة الداكنة':'تبديل المظهر إلى النسخة الفاتحة');try{localStorage.setItem(key,light?'light':'dark')}catch(e){}};let light=false;try{light=localStorage.getItem(key)==='light'}catch(e){}apply(light);b.addEventListener('click',()=>apply(!document.body.classList.contains('takhti-light')));})();
 </script>
 
+<style>
+
+/* TAKHTI V32 — unified luxury finish across both selectable themes */
+:root{--type-ar:"IBM Plex Sans Arabic","Noto Sans Arabic",Tahoma,sans-serif;--lux-ease:cubic-bezier(.2,.75,.25,1)}
+html{font-family:var(--type-ar)}
+body,button,input,select,textarea{font-family:var(--type-ar)}
+h1,h2,h3,.sectionHead,.navBrand,.brand strong{font-family:var(--type-ar);font-weight:750;letter-spacing:-.025em}
+h1{font-size:clamp(2rem,4.2vw,3.65rem);line-height:1.22}
+h2{font-size:clamp(1.25rem,2.1vw,1.85rem);line-height:1.35}
+p{line-height:1.9}
+button,a,.tool,.panel,.flow,.routeCard,.deckCard{transition:transform .22s var(--lux-ease),box-shadow .22s var(--lux-ease),border-color .22s var(--lux-ease),background .22s var(--lux-ease)}
+/* Distinct, high-contrast, dimensional icons without moving controls or changing behavior */
+.logo,.mark,.deckGlyph,.lp-emoji,.mg-icon{position:relative;isolation:isolate;overflow:hidden}
+.logo{display:grid;place-items:center;border-radius:17px;box-shadow:inset 1px 2px 2px #ffffffc7,inset -2px -4px 7px #25364a14,0 9px 17px #1d31421b;transition:transform .2s var(--lux-ease),box-shadow .2s var(--lux-ease)}
+.logo:after,.mark:after,.deckGlyph:after,.lp-emoji:after,.mg-icon:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(135deg,#ffffff75 0%,transparent 42%,#1c2d4010 100%);mix-blend-mode:screen}
+.mark{box-shadow:inset 2px 2px 4px #ffffff8c,inset -3px -5px 8px #25364a20,0 12px 23px #1d31422b}
+.tool{overflow:hidden;transform:translateZ(0)}
+.tool .logo{width:58px;height:58px;padding:9px}
+.tool:hover .logo{transform:translateY(-3px) rotate(-2deg)}
+.tool .toolActions{gap:8px}
+.sectionHead{display:flex;align-items:center;gap:10px}
+.quickNav{position:sticky;top:8px;backdrop-filter:blur(18px);border-radius:16px}
+.quickNav a{padding:8px 10px;border-radius:10px;text-decoration:none}
+.quickNav a:hover{background:#ffffff20}
+.designSwitcher{box-shadow:inset 0 1px 1px #ffffff45,0 8px 20px #162b4010}
+.designChoice{min-height:40px}
+body[data-skin="modern"] .panel,body[data-skin="modern"] .tool,body[data-skin="modern"] .flow,body[data-skin="modern"] .routeCard,body[data-skin="modern"] .execPanel,body[data-skin="modern"] .commandDeck{box-shadow:inset 0 1px 0 #fff,0 15px 36px #243b5312}
+body[data-skin="modern"] .tool{border-radius:22px}
+body[data-skin="neo"] .panel,body[data-skin="neo"] .tool,body[data-skin="neo"] .flow,body[data-skin="neo"] .routeCard,body[data-skin="neo"] .execPanel,body[data-skin="neo"] .commandDeck{box-shadow:inset 0 1px 0 #fffdf6,0 11px 27px #5c492616}
+body[data-skin="neo"] .tool .logo{border-radius:13px}
+body[data-skin="neo"] .sectionHead{letter-spacing:.01em}
+#modelGateway,#takhtiLaunchpad,#takhtiCommand{box-shadow:0 24px 64px #11182724}
+#modelGateway button,#takhtiLaunchpad button,#takhtiCommand button{transition:transform .18s var(--lux-ease),filter .18s var(--lux-ease),box-shadow .18s var(--lux-ease)}
+#modelGateway button:hover,#takhtiLaunchpad button:hover,#takhtiCommand button:hover{filter:brightness(1.06)}
+#modelGateway button:active,#takhtiLaunchpad button:active,#takhtiCommand button:active{transform:translateY(1px)}
+@media(max-width:760px){.wrap{padding:14px}.quickNav{top:4px;gap:4px}.quickNav a{font-size:12px;padding:7px}.tool .logo{width:52px;height:52px}.takhtiHeroArt{min-width:0}}
+@media(prefers-reduced-motion:reduce){button,a,.tool,.panel,.flow,.routeCard,.deckCard,.logo{transition:none!important}}
+
+</style>
 </body></html>
