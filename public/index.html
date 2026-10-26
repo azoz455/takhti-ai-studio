@@ -194,9 +194,43 @@ body[data-skin="modern"] .quickNav,body[data-skin="neo"] .quickNav{z-index:20}
  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 
+
+/* TAKHTI Luxury Dual Theme System: Obsidian Gold + Ivory Neo-classic */
+:root{--font-ar:"IBM Plex Sans Arabic","Noto Sans Arabic",Tahoma,sans-serif}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:var(--font-ar);font-feature-settings:"kern";text-rendering:optimizeLegibility}
+h1,h2,h3,h4,.brand,.navBrand,.sectionTitle{font-family:var(--font-ar);letter-spacing:-.025em}
+.themeToggle{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 13px;border-radius:999px;border:1px solid #c6a76d;background:linear-gradient(145deg,#fff7e6,#d9bd88);color:#342818;font:700 12px var(--font-ar);box-shadow:inset 0 1px #fff9,0 6px 18px #0002;cursor:pointer;white-space:nowrap}
+.themeToggle:hover{transform:translateY(-1px);box-shadow:inset 0 1px #fff9,0 9px 23px #0003}
+.takhtiHero,.takhtiHero *{font-family:var(--font-ar)}
+.takhtiHero{border-radius:30px;box-shadow:0 24px 65px #0002,inset 0 1px #ffffff90}
+.tool,.card,.panel,.section,.workflowCard,.connectorCard,.statCard,.featureCard{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.tool:hover,.workflowCard:hover,.connectorCard:hover,.featureCard:hover{transform:translateY(-3px)}
+/* Alternate ivory-and-champagne neo-classic theme */
+body.takhti-light{--bg:#f5f0e7;--panel:#fffaf1;--panel2:#f2e7d5;--text:#30271e;--muted:#796d5f;--line:#dfcfb5;--accent:#a77a36;--accent2:#5b8f91;--green:#287d63;--red:#b84d4d;color-scheme:light;background:radial-gradient(ellipse at 90% 0,#fff9eb 0,transparent 40%),linear-gradient(135deg,#f5f0e7,#eee5d6 60%,#f8f4ec);color:#30271e}
+body.takhti-light .hero:not(.takhtiHero){background:linear-gradient(125deg,#fffaf1,#efe3d0);border-color:#ddc7a5;box-shadow:0 18px 45px #73572b13}
+body.takhti-light .takhtiHero{background:radial-gradient(ellipse at 82% 45%,#e8e0f7 0,transparent 28%),radial-gradient(ellipse at 98% 100%,#ffe9cc 0,transparent 33%),linear-gradient(125deg,#fffdf8,#f8f0e2 54%,#f5eff9);border-color:#e2cfad;box-shadow:0 25px 60px #725a351c,inset 0 1px #fff}
+body.takhti-light .takhtiHero h1{color:#30271e}
+body.takhti-light .takhtiHero p{color:#726456}
+body.takhti-light .takhtiHero .tag{background:#fffaf0e8;border-color:#e4d4bb;color:#645541}
+body.takhti-light .heroTrust{color:#827360}
+body.takhti-light .artHalo{background:radial-gradient(circle at 35% 25%,#fff 0,#f7e7c9 24%,#e3dcf6 52%,#f7dce8 69%,#fff0d9 78%);box-shadow:inset -16px -22px 40px #a77a3622,inset 12px 14px 30px #fff,0 30px 60px #7e65301c}
+body.takhti-light .quickNav{background:#fffaf1eF;border-color:#e3d3ba;box-shadow:0 10px 30px #4c38200c}
+body.takhti-light .quickNav a{color:#5c4c39}
+body.takhti-light .quickNav a:hover{background:#efe2cd;color:#35281b}
+body.takhti-light .themeToggle{background:linear-gradient(145deg,#24252e,#473b2c);border-color:#bfa36e;color:#f8e5bd}
+body.takhti-light .btn{background:linear-gradient(145deg,#fffaf2,#eee2cf);border-color:#deccb0;color:#46392a}
+body.takhti-light .btn.primary{background:linear-gradient(120deg,#a77a36,#d7b97e);border-color:#b48b4b;color:#2d2419}
+body.takhti-light input,body.takhti-light textarea,body.takhti-light select{background:#fffaf2!important;color:#30271e!important;border-color:#ddcbb0!important}
+body.takhti-light .panel,body.takhti-light .card,body.takhti-light .tool,body.takhti-light .workflowCard,body.takhti-light .connectorCard,body.takhti-light .featureCard,body.takhti-light .statCard,body.takhti-light .modal-content{box-shadow:0 12px 32px #634c2910}
+body.takhti-light .muted,body.takhti-light small{color:#796d5f}
+body.takhti-light .eyebrow{color:#99702e}
+@media(max-width:680px){.themeToggle{padding:8px 10px;font-size:11px}.themeToggle span{display:inline}.takhtiHero{border-radius:22px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tool,.card,.panel,.section,.workflowCard,.connectorCard,.statCard,.featureCard,.themeToggle{transition:none}}
+
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head><body><div class="wrap"><header class="top"><div class="brand"><div class="mark">تـ</div><div><div class="eyebrow">TAKHTI AI STUDIO · V14</div><strong>مركز الإنتاج ومنصة الإنتاج الذكي</strong><div class="muted" style="font-size:12px">الأداة المناسبة، الأمر المناسب، والتنفيذ بخطوات أقصر.</div></div></div><div class="actions"><div class="designSwitcher" id="designSwitcher" role="group" aria-label="اختر التصميم"><span class="designLabel">التصميم</span><button class="designChoice" type="button" data-skin-choice="modern" aria-pressed="true" onclick="setTakhtiSkin('modern')"><span class="swatch"></span>مودرن فاخر</button><button class="designChoice" type="button" data-skin-choice="neo" aria-pressed="false" onclick="setTakhtiSkin('neo')"><span class="swatch"></span>نيوكلاسيك</button></div><button class="btn" onclick="showFavorites()">★ المفضلة <span id="favCount">0</span></button><button class="btn" onclick="exportData()">تصدير بياناتي</button><button class="btn" onclick="document.getElementById('importFile').click()">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" hidden onchange="importData(event)"></div></header>
-<nav class="quickNav" aria-label="التنقل السريع"><span class="navBrand">التخطي</span><a href="#executionCenter">مركز التنفيذ</a><a href="#liveIntegrationPanel">التوليد المتصل</a><a href="#connectorGrid">التكاملات</a><a href="#toolLibrary">مكتبة الأدوات</a><a href="#promptBuilder">صانع الأوامر</a><a href="#workflowSection">مسارات العمل</a></nav>
+<nav class="quickNav" aria-label="التنقل السريع"><span class="navBrand">التخطي</span><a href="#executionCenter">مركز التنفيذ</a><a href="#liveIntegrationPanel">التوليد المتصل</a><a href="#connectorGrid">التكاملات</a><a href="#toolLibrary">مكتبة الأدوات</a><a href="#promptBuilder">صانع الأوامر</a><a href="#workflowSection">مسارات العمل</a><button type="button" class="themeToggle" id="takhtiThemeToggle" aria-pressed="false" aria-label="تبديل المظهر إلى النسخة الفاتحة">☼ <span>المظهر الفاتح</span></button></nav>
 <section class="hero takhtiHero"><div class="takhtiHeroCopy"><div class="eyebrow">TAKHTI AI STUDIO · مساحة الإنجاز الذكي</div><h1>حوّل فكرتك إلى <span class="heroGradient">نتيجة ملموسة.</span></h1><p>من الفكرة والخطة إلى الإنتاج والاختبار. مساحة عربية تجمع أدوات الذكاء الاصطناعي، تنظيم المشاريع، صناعة المحتوى، والبحث في تجربة واحدة واضحة.</p><div class="pills"><span class="tag">✦ مسارات إنتاج عملية</span><span class="tag">◈ أدوات ومشاريع</span><span class="tag">⌘ أوامر جاهزة</span><span class="tag">✓ حفظ وتصدير</span></div><div class="takhtiHeroActions"><a class="btn primary" href="#learnBuildSolve">ابدأ مشروعًا جديدًا <span aria-hidden="true">↗</span></a><a class="btn" href="#toolLibrary">استكشف مكتبة الأدوات</a></div><div class="heroTrust"><span>واجهة عربية أولًا</span><span>•</span><span>الخصوصية أولًا</span><span>•</span><span>وضوح حالة الاتصال</span></div></div><div class="heroArt takhtiHeroArt" aria-label="رمز ثلاثي الأبعاد للتخطي"><div class="artHalo"></div><div class="artCore">✦</div><div class="artFloat artFloatOne">✧<small>إبداع</small></div><div class="artFloat artFloatTwo">⌘<small>تنفيذ</small></div><div class="artFloat artFloatThree">◈<small>تحليل</small></div><div class="artOrbit artOrbitOne"></div><div class="artOrbit artOrbitTwo"></div><div class="artCaption">IDEA <span>→</span> IMPACT</div></div></section>
 
 <section id="commandDeck" class="commandDeck sectionAnchor" aria-labelledby="deckTitle">
@@ -577,4 +611,9 @@ window.addEventListener('scroll',()=>{const b=document.getElementById('backTop')
 async function health(){try{const r=await fetch(apiBase()+'/health',{headers:authHeaders(false)});if(!r.ok)throw Error('HTTP '+r.status);const d=await r.json();setStatus(d.ok?'بوابة الخادم متاحة':'الخادم يعمل جزئيًا');const map={gemini:'mgGemini',openai:'mgOpenRouter'};for(const [k,id] of Object.entries(map))$(id).textContent=d.providers&&d.providers[k]&&d.providers[k].configured?'مهيأ على الخادم • الحصة حسب حساب المزود':'غير مهيأ أو غير متاح';}catch(e){setStatus('الخادم غير متصل بعد');$('mgMeta').textContent='تعذر الوصول إلى /health. أدخل رابط Worker المنشور ورمز APP_TOKEN إن كان مطلوبًا.';for(const id of ['mgGemini','mgOpenRouter'])$(id).textContent='لم يتم التحقق من الاتصال';}}
 $('mgSend').addEventListener('click',async()=>{const prompt=$('mgPrompt').value.trim();if(!prompt){$('mgOutput').textContent='اكتب المهمة أولًا.';return}if(state.busy)return;state.busy=true;$('mgSend').disabled=true;$('mgSend').textContent='جارٍ التنفيذ…';$('mgOutput').textContent='جارٍ إرسال المهمة إلى الخادم…';$('mgMeter').style.width='35%';try{const r=await fetch(apiBase()+'/api/generate',{method:'POST',headers:authHeaders(true),body:JSON.stringify({prompt,provider:$('mgProvider').value})});const d=await r.json().catch(()=>({error:'استجابة غير مفهومة من الخادم'}));if(!r.ok)throw Error(d.error||('HTTP '+r.status));$('mgOutput').textContent=d.text||'وصل رد فارغ من المزود.';$('mgMeta').textContent='المزود: '+(d.provider||'غير محدد')+' • راجع لوحة المزود لمعرفة حصتك وتكلفتك الفعلية.';$('mgMeter').style.width='100%';}catch(e){$('mgOutput').textContent='لم يكتمل التنفيذ: '+e.message;$('mgMeta').textContent='تحقق من نشر خدمة API وإعداد مفاتيح المزودات كمتغيرات بيئة في الخادم.';$('mgMeter').style.width='0%';}finally{state.busy=false;$('mgSend').disabled=false;$('mgSend').textContent='✦ نفّذ المهمة';}});$('mgClear').addEventListener('click',()=>{$('mgPrompt').value='';$('mgOutput').textContent='تم مسح مساحة المهمة.';$('mgMeta').textContent='جاهز لمهمة جديدة.';$('mgMeter').style.width='0%'});$('mgCopy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText($('mgOutput').textContent);$('mgMeta').textContent='تم نسخ الناتج.'}catch(e){$('mgMeta').textContent='تعذر النسخ التلقائي؛ حدّد الناتج وانسخه يدويًا.'}});health();})();
 </script>
+
+<script>
+(()=>{const b=document.getElementById('takhtiThemeToggle');if(!b)return;const key='takhti-luxury-theme-v1';const apply=light=>{document.body.classList.toggle('takhti-light',light);b.setAttribute('aria-pressed',String(light));b.innerHTML=light?'◐ <span>المظهر الداكن</span>':'☼ <span>المظهر الفاتح</span>';b.setAttribute('aria-label',light?'تبديل المظهر إلى النسخة الداكنة':'تبديل المظهر إلى النسخة الفاتحة');try{localStorage.setItem(key,light?'light':'dark')}catch(e){}};let light=false;try{light=localStorage.getItem(key)==='light'}catch(e){}apply(light);b.addEventListener('click',()=>apply(!document.body.classList.contains('takhti-light')));})();
+</script>
+
 </body></html>
