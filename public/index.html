@@ -156,6 +156,44 @@ body[data-skin="neo"] .designChoice[aria-pressed="true"]{background:#7e6039;colo
 body[data-skin="modern"] .designChoice[aria-pressed="true"]{background:#1d7078;color:#fff;border-color:#64b5b8}
 @media(max-width:760px){.designSwitcher{width:100%;justify-content:space-between}.designChoice{flex:1;justify-content:center;padding:9px 7px}.designLabel{display:none}}
 
+
+/* TAKHTI FINAL POLISH V31: depth, interaction, accessibility, responsive fit */
+:where(button,a,input,select,textarea,[tabindex]):focus-visible{outline:3px solid #4d9ca5!important;outline-offset:3px!important}
+:where(button,a){-webkit-tap-highlight-color:transparent}
+body[data-skin="modern"] .tool{position:relative;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+body[data-skin="modern"] .tool:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#1b8c8b,#7160d5,#d38bb3);opacity:.8}
+body[data-skin="modern"] .tool:hover{transform:translateY(-5px);box-shadow:0 24px 48px #243b531c;border-color:#c3d8e8}
+body[data-skin="modern"] .logo{background:linear-gradient(145deg,#fff,#e6eff9);transition:transform .2s ease,box-shadow .2s ease}
+body[data-skin="modern"] .tool:hover .logo{transform:translateY(-2px) rotate(-2deg);box-shadow:0 10px 20px #243b5318}
+body[data-skin="modern"] .mark{position:relative;box-shadow:inset 0 2px 4px #fff, inset 0 -5px 9px #337f8033,0 13px 25px #397f7a28}
+body[data-skin="modern"] .artCore{border:1px solid #ffffffb8;transform:translateZ(0);filter:drop-shadow(0 12px 12px #6255a126)}
+body[data-skin="neo"] .tool{position:relative;transition:transform .2s ease,box-shadow .2s ease}
+body[data-skin="neo"] .tool:hover{transform:translateY(-3px);box-shadow:0 18px 32px #5c492625;border-color:#c4aa7e}
+body[data-skin="neo"] .logo{background:linear-gradient(145deg,#fffdf5,#ead8b8);transition:transform .2s ease}
+body[data-skin="neo"] .tool:hover .logo{transform:translateY(-2px)}
+body[data-skin="neo"] .artCore{border:1px solid #fff8e0a8}
+body[data-skin="neo"] .hero{box-shadow:inset 0 1px 0 #fff,0 18px 42px #57462b14}
+body[data-skin="modern"] .hero{box-shadow:inset 0 1px 0 #fff,0 28px 75px #203b5512}
+body[data-skin="modern"] .btn,body[data-skin="neo"] .btn{transition:transform .16s ease,box-shadow .16s ease,filter .16s ease}
+body[data-skin="modern"] .btn:hover,body[data-skin="neo"] .btn:hover{filter:brightness(1.015);transform:translateY(-1px)}
+body[data-skin="modern"] .btn:active,body[data-skin="neo"] .btn:active{transform:translateY(1px)}
+body[data-skin="modern"] .quickNav,body[data-skin="neo"] .quickNav{z-index:20}
+.designChoice:focus-visible{outline-color:#fff!important}
+@media(max-width:640px){
+ .brand{align-items:flex-start;gap:10px}
+ .brand .muted{max-width:220px}
+ .actions{gap:7px}
+ .designSwitcher{order:-1}
+ .hero{overflow:hidden}
+ .heroArt{max-width:100%;transform:scale(.94);transform-origin:center}
+ .toolActions .btn,.deckActions .btn{min-height:42px}
+ input,select,textarea{font-size:16px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head><body><div class="wrap"><header class="top"><div class="brand"><div class="mark">تـ</div><div><div class="eyebrow">TAKHTI AI STUDIO · V14</div><strong>مركز الإنتاج ومنصة الإنتاج الذكي</strong><div class="muted" style="font-size:12px">الأداة المناسبة، الأمر المناسب، والتنفيذ بخطوات أقصر.</div></div></div><div class="actions"><div class="designSwitcher" id="designSwitcher" role="group" aria-label="اختر التصميم"><span class="designLabel">التصميم</span><button class="designChoice" type="button" data-skin-choice="modern" aria-pressed="true" onclick="setTakhtiSkin('modern')"><span class="swatch"></span>مودرن فاخر</button><button class="designChoice" type="button" data-skin-choice="neo" aria-pressed="false" onclick="setTakhtiSkin('neo')"><span class="swatch"></span>نيوكلاسيك</button></div><button class="btn" onclick="showFavorites()">★ المفضلة <span id="favCount">0</span></button><button class="btn" onclick="exportData()">تصدير بياناتي</button><button class="btn" onclick="document.getElementById('importFile').click()">استيراد نسخة</button><input id="importFile" type="file" accept="application/json" hidden onchange="importData(event)"></div></header>
 <nav class="quickNav" aria-label="التنقل السريع"><span class="navBrand">التخطي</span><a href="#executionCenter">مركز التنفيذ</a><a href="#liveIntegrationPanel">التوليد المتصل</a><a href="#connectorGrid">التكاملات</a><a href="#toolLibrary">مكتبة الأدوات</a><a href="#promptBuilder">صانع الأوامر</a><a href="#workflowSection">مسارات العمل</a></nav>
